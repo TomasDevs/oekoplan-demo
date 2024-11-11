@@ -4,9 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#073436",
+        primary: "#063436",
         secondary: "#C6E51A",
-        tertiary: "#AFD9D4",
+        tertiary: "#B0D9D4",
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', "sans-serif"],
       },
     },
   },
