@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+
+# Build files and compiled assets
+public/css/styles.css
+public/js/
+
+# VScode settings
+.vscode/
+
+# Cache and logs
+*.log
+.cache/
+
+# Lock files
+package-lock.json
