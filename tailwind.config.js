@@ -7,6 +7,7 @@ module.exports = {
         primary: "#063436",
         secondary: "#C6E51A",
         tertiary: "#B0D9D4",
+        line: "#285556",
       },
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', "sans-serif"],
