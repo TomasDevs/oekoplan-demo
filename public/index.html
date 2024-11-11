@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oekoplan</title>
+    <title>Průkazy energetické náročnosti - Oekoplan</title>
     <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png" />
     <link
       rel="icon"
@@ -29,7 +29,221 @@
     <link rel="icon" href="favicon/favicon.ico" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
-    Hello
+  <body class="font-sans antialiased">
+    <div
+      class="hero-wrapper bg-primary text-white rounded-bl-[40px] rounded-br-[40px]">
+      <header class="header">
+        <div class="relative py-3 border-b border-tertiary">
+          <div
+            x-data="{ activeLink: 'oekoplan' }"
+            class="xl:container mx-auto px-3 lg:px-6 flex text-sm text-tertiary">
+            <ul class="flex items-center gap-8">
+              <li class="relative">
+                <a
+                  href="https://oekoplan.cz"
+                  @click.prevent="activeLink = 'oekoplan'"
+                  class="py-2 hover:text-secondary"
+                  >oekoplan.cz</a
+                >
+                <div
+                  x-show="activeLink === 'oekoplan'"
+                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-8 border-r-8 border-b-8 border-transparent border-b-tertiary"></div>
+              </li>
+              <li class="relative">
+                <a
+                  href="https://eprukazy.cz"
+                  @click.prevent="activeLink = 'eprukaz'"
+                  class="py-2 hover:text-secondary"
+                  >eprukazy.cz</a
+                >
+                <div
+                  x-show="activeLink === 'eprukaz'"
+                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-8 border-r-8 border-b-8 border-transparent border-b-tertiary"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          x-data="{ open: false }"
+          class="xl:container mx-auto block lg:flex justify-between items-center py-6 px-3 lg:px-6">
+          <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center w-full space-x-4">
+              <div class="logo w-36 lg:w-[171px]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 171 40"
+                  class="w-full h-auto">
+                  <g fill="#fff" clip-path="url(#a)">
+                    <path
+                      d="M19.717 36.624C10.64 36.602 3.299 29.169 3.283 19.98 3.3 10.785 10.641 3.356 19.717 3.337c9.076.02 16.416 7.448 16.435 16.643-.02 9.19-7.359 16.622-16.435 16.644Zm30.789-15.05h26.127V19.98C76.63 8.952 67.807.016 56.918.016c-8.6 0-15.906 5.573-18.602 13.34C35.621 5.59 28.314.016 19.716.016 8.829.016.003 8.952 0 19.98.002 31.01 8.828 39.94 19.717 39.945c8.598 0 15.9-5.576 18.6-13.347 2.695 7.771 10.001 13.347 18.601 13.347v-3.321c-9.078-.022-16.42-7.455-16.438-16.644.018-9.195 7.36-16.624 16.438-16.643 8.543.015 15.547 6.602 16.354 15.047H50.506v3.19Z" />
+                    <path
+                      d="M25.773 17.692c-1.142 0-2.07.941-2.07 2.1 0 1.155.928 2.097 2.07 2.097 1.145 0 2.07-.942 2.07-2.097 0-1.159-.925-2.1-2.07-2.1ZM13.54 17.692c-1.143 0-2.073.941-2.073 2.1 0 1.155.93 2.097 2.072 2.097 1.145 0 2.07-.942 2.07-2.097 0-1.159-.925-2.1-2.07-2.1Z" />
+                    <path
+                      d="M0 19.98C.002 31.01 8.828 39.945 19.719 39.945v-3.321c-9.078-.016-16.42-7.449-16.436-16.644C3.3 10.79 10.641 3.356 19.72 3.337V.016C8.829.02.002 8.952 0 19.98ZM88.078 8.382c0 3.353 1.736 5.564 4.35 5.564 2.6 0 4.353-2.211 4.353-5.477 0-3.465-1.691-5.653-4.353-5.653-2.614 0-4.35 2.214-4.35 5.566ZM97.82 2.23c1.409 1.525 2.205 3.762 2.205 6.266 0 2.26-.843 4.577-2.205 6.052-1.363 1.487-3.14 2.2-5.392 2.2-2.25 0-4.026-.713-5.387-2.2-1.408-1.525-2.205-3.778-2.205-6.165 0-2.391.797-4.628 2.205-6.153C88.385.752 90.197 0 92.406 0c2.274 0 4.026.718 5.414 2.229ZM113.686 13.51h8.55v2.738h-11.795V.263h11.409v2.751h-8.164v3.614h7.554v2.741h-7.554M136.672 16.248h-3.244V.263h3.244v7.03l6.17-7.03h3.83l-6.299 6.893 6.969 9.092h-3.879l-5.164-7.057-1.627 1.717M158.691 8.382c0 3.353 1.733 5.564 4.348 5.564 2.598 0 4.354-2.211 4.354-5.477 0-3.465-1.69-5.653-4.354-5.653-2.615 0-4.348 2.214-4.348 5.566Zm9.739-6.153c1.41 1.525 2.207 3.762 2.207 6.266 0 2.26-.844 4.577-2.207 6.052-1.36 1.487-3.137 2.2-5.391 2.2-2.248 0-4.021-.713-5.389-2.2-1.408-1.525-2.203-3.778-2.203-6.165 0-2.391.795-4.628 2.203-6.153C158.99.752 160.814 0 163.02 0c2.273 0 4.021.718 5.41 2.229ZM93.18 31.458c1.732 0 2.53-.764 2.53-2.39 0-1.637-.798-2.4-2.53-2.4h-3.032v4.79h3.032Zm-3.032 8.441h-3.25V23.914h6.975c3.291 0 5.088 1.762 5.088 4.966 0 3.242-1.861 5.329-4.76 5.329h-4.053v5.69ZM113.33 37.162h7.557v2.737h-10.799V23.916h3.242M137.779 27.694l-2.056 6.254h4.111l-2.055-6.254Zm-2.967 8.98-1.068 3.225h-3.305l5.606-15.983h3.592L145.09 39.9h-3.328l-1.045-3.226M159.922 28.855v11.044h-3.246V23.916h3.328l6.264 10.88v-10.88h3.244V39.9h-3.244" />
+                    <path
+                      d="M19.705 36.61c-9.072-.02-16.408-7.449-16.422-16.63.014-9.189 7.35-16.612 16.422-16.633 9.067.021 16.404 7.444 16.422 16.633-.018 9.181-7.356 16.61-16.422 16.63ZM50.47 21.572h26.107V19.98C76.574 8.96 67.756.03 56.877.03c-8.594 0-15.895 5.57-18.588 13.33C35.594 5.6 28.295.03 19.705.03 8.822.03.002 8.96 0 19.98.002 31 8.822 39.923 19.705 39.93c8.59 0 15.887-5.572 18.584-13.337 2.693 7.765 9.994 13.337 18.588 13.337V36.61c-9.072-.02-16.406-7.449-16.424-16.63.018-9.189 7.352-16.612 16.424-16.633 8.535.017 15.535 6.598 16.34 15.04H50.469v3.185Z" />
+                    <path
+                      d="M23.686 19.792c0 1.151.927 2.095 2.07 2.095 1.142 0 2.068-.944 2.068-2.095 0-1.159-.926-2.1-2.068-2.1-1.143 0-2.07.941-2.07 2.1ZM11.46 19.792c0 1.151.929 2.095 2.071 2.095 1.145 0 2.067-.944 2.067-2.095 0-1.159-.922-2.1-2.067-2.1-1.142 0-2.07.941-2.07 2.1Z" />
+                    <path
+                      d="M19.705 39.929V36.61c-9.072-.016-16.408-7.443-16.422-16.63.014-9.185 7.35-16.612 16.422-16.633V.03C8.822.036.002 8.96 0 19.98.002 31 8.822 39.93 19.705 39.93Z" />
+                  </g>
+                  <defs>
+                    <clipPath id="a">
+                      <path fill="#fff" d="M0 0h171v40H0z" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+
+              <div class="lg:hidden flex items-center space-x-2">
+                <button
+                  @click="open = !open"
+                  :class="open ? 'rounded-br-none rounded-bl-none rounded-2xl pb-5' : 'rounded-full'"
+                  class="lg:hidden py-1.5 px-2 pl-6 bg-white flex items-center space-x-6 focus:outline-none transition-all duration-300">
+                  <span class="text-primary font-medium">Menu</span>
+                  <div
+                    class="relative w-9 h-9 bg-secondary rounded-full flex items-center justify-center transition-all duration-300">
+                    <span
+                      class="block h-0.5 w-3 bg-primary absolute transform transition-all duration-300"
+                      :class="open ? 'rotate-45 top-1/2 -translate-y-1/2' : 'top-[45%] -translate-y-1/2'"></span>
+                    <span
+                      class="block h-0.5 w-3 bg-primary absolute transform transition-all duration-300"
+                      :class="open ? '-rotate-45 top-1/2 -translate-y-1/2' : 'top-[55%] -translate-y-1/2'"></span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+          <nav class="relative transition-all duration-300" role="navigation">
+            <ul
+              :class="open ? 'block rounded-tr-none rounded-2xl' : 'hidden'"
+              class="menu absolute top-full right-0 w-full bg-white text-primary lg:text-white p-6 lg:flex lg:items-center lg:space-x-6 lg:static lg:p-0 lg:bg-transparent lg:space-x-8 transition-all duration-300 z-10">
+              <li>
+                <a href="#" class="relative flex items-center group">
+                  <span>Průkazy PENB</span>
+                  <span
+                    class="inline-block transition-transform duration-300 group-hover:rotate-45">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="19"
+                      height="19"
+                      fill="none">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="m6.82 12.181 5.362-5.362M12.18 11.415V6.82M7.585 6.819h4.596" />
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="block"> Energetické posudky </a>
+              </li>
+              <li>
+                <a href="#" class="block"> O nás </a>
+              </li>
+              <li>
+                <a href="#" class="block"> Kariéra </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block lg:flex lg:items-center lg:h-12 lg:py-1 lg:px-2 lg:pl-4 lg:space-x-8 lg:border lg:border-secondary lg:rounded-full group">
+                  <span>Kontakt</span>
+                  <span
+                    class="hidden lg:flex justify-center items-center bg-secondary text-primary rounded-full w-9 h-9">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="none"
+                      class="group-hover:shake transition-all duration-300">
+                      <g clip-path="url(#a)">
+                        <g clip-path="url(#b)">
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.5"
+                            d="M2.526.842h3.368l1.685 4.21-2.106 1.264a9.263 9.263 0 0 0 4.21 4.21l1.264-2.105 4.21 1.684v3.369a1.684 1.684 0 0 1-1.684 1.684A13.473 13.473 0 0 1 .842 2.526 1.684 1.684 0 0 1 2.526.842Z" />
+                        </g>
+                      </g>
+                      <defs>
+                        <clipPath id="a">
+                          <path fill="#fff" d="M0 0h16v16H0z" />
+                        </clipPath>
+                        <clipPath id="b">
+                          <path
+                            fill="#fff"
+                            d="M-1.685-2.526h20.21v20.21h-20.21z" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                </a>
+              </li>
+              <li
+                x-show="open"
+                class="flex items-center space-x-2 mt-20 lg:hidden">
+                <a href="tel:+420549241370" class="flex items-center space-x-2">
+                  <span
+                    class="relative w-9 h-9 bg-secondary rounded-full flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="none">
+                      <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M2.958 1.166h3.167l1.583 3.959L5.73 6.312a8.708 8.708 0 0 0 3.958 3.959l1.188-1.98 3.958 1.584v3.166a1.584 1.584 0 0 1-1.583 1.584A12.666 12.666 0 0 1 1.375 2.75a1.583 1.583 0 0 1 1.583-1.584Z" />
+                    </svg>
+                  </span>
+                  <span>+420 549 241 370</span>
+                </a>
+              </li>
+              <li
+                x-show="open"
+                class="flex items-center space-x-2 mt-2 lg:hidden">
+                <a
+                  href="mailto:oekoplan@oekoplan.cz"
+                  class="flex items-center space-x-2">
+                  <span
+                    class="relative w-9 h-9 bg-secondary rounded-full flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="19"
+                      height="19"
+                      fill="none">
+                      <g
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        clip-path="url(#a)">
+                        <path
+                          d="m7.917 11.083 8.708-8.708M16.625 2.375l-5.146 14.25a.436.436 0 0 1-.791 0l-2.771-5.542-5.542-2.77a.435.435 0 0 1 0-.792l14.25-5.146Z" />
+                      </g>
+                      <defs>
+                        <clipPath id="a">
+                          <path fill="#fff" d="M0 0h19v19H0z" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </span>
+                  <span>oekoplan@oekoplan.cz</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <script src="js/app.js" defer></script>
   </body>
 </html>
