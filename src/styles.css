@@ -6,21 +6,28 @@
   font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("../css/fonts/PlusJakartaSans-Regular.ttf") format("truetype");
+  src: url("../fonts/PlusJakartaSans-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 500;
-  src: url("../css/fonts/PlusJakartaSans-Medium.ttf") format("truetype");
+  src: url("../fonts/PlusJakartaSans-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Plus Jakarta Sans";
   font-style: normal;
   font-weight: 700;
-  src: url("../css/fonts/PlusJakartaSans-Bold.ttf") format("truetype");
+  src: url("../fonts/PlusJakartaSans-Bold.ttf") format("truetype");
+}
+
+@layer base {
+  ::selection {
+    background-color: theme("colors.secondary");
+    color: theme("colors.primary");
+  }
 }
 
 @layer utilities {
@@ -50,7 +57,7 @@
 }
 
 .menu a {
-  @apply py-2 font-bold lg:font-normal text-primary lg:text-white hover:underline lg:hover:no-underline lg:hover:text-secondary transition-all duration-300;
+  @apply py-2 text-xl lg:text-base font-bold lg:font-normal text-primary lg:text-white hover:underline lg:hover:no-underline lg:hover:text-secondary transition-all duration-300;
 }
 
 .skew-content::before {
@@ -66,8 +73,87 @@
 
 .gradient {
   background: linear-gradient(
-    330deg,
+    335deg,
     rgba(7, 52, 54, 1) 80%,
     rgba(198, 229, 26, 0.6) 100%
   );
+}
+
+@keyframes pulsePrice {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.price-value {
+  animation: pulsePrice 1.5s infinite ease-in-out alternate;
+}
+
+@keyframes highlightPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.highlight {
+  animation: highlightPulse 2s infinite ease-in-out;
+}
+
+@keyframes rect2Animation {
+  0%,
+  25%,
+  100% {
+    opacity: 0;
+  }
+  30%,
+  60% {
+    opacity: 1;
+  }
+}
+
+@keyframes rect3Animation {
+  0%,
+  50%,
+  80%,
+  100% {
+    opacity: 0;
+  }
+  55%,
+  75% {
+    opacity: 1;
+  }
+}
+
+.rect-animate1 {
+  opacity: 1;
+}
+
+.rect-animate2 {
+  animation: rect2Animation 6s ease-in-out infinite;
+}
+
+.rect-animate3 {
+  animation: rect3Animation 6s ease-in-out infinite;
+}
+
+.sparkle {
+  animation: sparkleBlink 1.5s infinite alternate;
+}
+
+@keyframes sparkleBlink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
 }

@@ -33,11 +33,11 @@
     <div
       class="hero-wrapper pb-20 bg-primary text-white rounded-bl-[40px] rounded-br-[40px]">
       <header class="header">
-        <div class="relative py-3 border-b border-tertiary">
+        <div class="relative py-3 border-b border-tertiary/20">
           <div
             x-data="{ activeLink: 'oekoplan' }"
             class="2xl:container mx-auto px-3 lg:px-6 flex text-sm text-tertiary">
-            <ul class="flex items-center gap-8">
+            <ul class="flex items-center gap-7">
               <li class="relative">
                 <a
                   href="https://oekoplan.cz"
@@ -47,7 +47,7 @@
                 >
                 <div
                   x-show="activeLink === 'oekoplan'"
-                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-8 border-r-8 border-b-8 border-transparent border-b-tertiary"></div>
+                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-7 border-r-7 border-b-8 border-transparent border-b-tertiary"></div>
               </li>
               <li class="relative">
                 <a
@@ -58,7 +58,7 @@
                 >
                 <div
                   x-show="activeLink === 'eprukaz'"
-                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-8 border-r-8 border-b-8 border-transparent border-b-tertiary"></div>
+                  class="absolute left-1/2 -translate-x-1/2 -bottom-3 w-0 h-0 mx-auto border-l-7 border-r-7 border-b-8 border-transparent border-b-tertiary"></div>
               </li>
             </ul>
           </div>
@@ -116,13 +116,13 @@
           </div>
           <nav class="relative transition-all duration-300" role="navigation">
             <ul
-              :class="open ? 'block rounded-tr-none rounded-2xl' : 'hidden'"
-              class="menu absolute top-full right-0 w-full bg-white text-primary lg:text-white p-6 lg:flex lg:items-center lg:space-x-6 lg:static lg:p-0 lg:bg-transparent lg:space-x-8 transition-all duration-300 z-10">
+              :class="open ? 'block rounded-tr-none rounded-3xl' : 'hidden'"
+              class="menu absolute top-full right-0 w-full bg-white text-primary lg:text-white p-6 lg:flex lg:items-center lg:space-x-8 xl:space-x-12 lg:static lg:p-0 lg:bg-transparent transition-all duration-300 z-10">
               <li>
                 <a href="#" class="relative flex items-center group">
                   <span>Průkazy PENB</span>
                   <span
-                    class="inline-block transition-transform duration-300 group-hover:rotate-45">
+                    class="inline-block text-primary lg:text-secondary transition-transform duration-300 group-hover:rotate-45">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="19"
@@ -150,7 +150,7 @@
               <li>
                 <a
                   href="#"
-                  class="block lg:flex lg:items-center lg:h-12 lg:py-1 lg:px-2 lg:pl-4 lg:space-x-8 lg:border lg:border-secondary lg:rounded-full group">
+                  class="block lg:w-44 lg:flex lg:items-center lg:justify-between lg:h-12 lg:py-1 lg:px-2 lg:pl-6 lg:space-x-8 lg:border lg:border-tertiary/30 lg:rounded-full group">
                   <span>Kontakt</span>
                   <span
                     class="hidden lg:flex justify-center items-center bg-secondary text-primary rounded-full w-9 h-9">
@@ -253,9 +253,9 @@
              fade = false;
            }, 500);
          }, 3000)"
-          class="py-8 md:py-14 lg:py-20 text-left">
+          class="py-8 md:py-14 lg:py-18 text-left">
           <h1
-            class="text-[46px] md:text-[56px] font-normal leading-tight max-w-[55rem]">
+            class="text-[46px] md:text-[56px] font-normal leading-tight max-w-[58rem]">
             Dokazujeme, že šetrnost k&nbsp;přírodě je
             <strong
               class="transition-all duration-500 ease-in-out transform"
@@ -265,34 +265,35 @@
           </h1>
         </section>
 
-        <div class="grid xl:grid-cols-[1.5fr_1fr] gap-6 md:gap-10 pt-9">
+        <div class="grid xl:grid-cols-[1.45fr_1fr] gap-6 md:gap-9 pt-12">
           <section class="flex">
             <div
-              class="relative flex flex-col flex-1 justify-between md:flex-row space-y-6 md:space-y-0 md:space-x-12 py-12 p-8 border border-line rounded-3xl gradient">
+              class="relative flex flex-col flex-1 justify-between md:flex-row space-y-6 md:space-y-0 md:space-x-12 py-8 lg:py-14 p-10 lg:p-16 border border-line rounded-3xl gradient">
               <div class="flex flex-col justify-between">
                 <div class="block">
-                  <h2 class="text-2xl font-semibold mb-4">Průkaz PENB</h2>
-                  <p class="text-lg mb-4 max-w-64">
+                  <h2 class="text-2xl font-semibold mb-5">Průkaz PENB</h2>
+                  <p class="text-xl mb-5 max-w-72 font-light text-tertiary">
                     Získejte průkaz energetické náročnosti budovy
                   </p>
                   <p
-                    class="text-3xl font-bold mb-8"
+                    class="text-5xl font-bold mb-8 price-value"
                     x-data="{ value: 0, finalValue: 4598 }"
                     x-init="let interval = setInterval(() => {
-        if (value < finalValue) {
-          value += Math.ceil(finalValue / 100); // krok animace
-        } else {
-          value = finalValue;
-          clearInterval(interval);
-        }
-      }, 15)">
-                    <span class="text-lg">od</span> <span x-text="value"></span>
-                    <span class="text-lg">Kč</span>
+                        if (value < finalValue) {
+                        value += Math.ceil(finalValue / 100); // krok animace
+                        } else {
+                        value = finalValue;
+                        clearInterval(interval);
+                        }
+                    }, 15)">
+                    <span class="text-2xl font-normal">od</span>
+                    <span x-text="value.toLocaleString('cs-CZ')"></span>
+                    <span class="text-2xl font-normal">Kč</span>
                   </p>
                 </div>
                 <a
                   href="#"
-                  class="flex items-center max-w-44 bg-secondary text-primary font-semibold py-4 px-6 rounded-full gap-3 hover:bg-opacity-80 focus:outline-none transition-all duration-300 relative group">
+                  class="flex items-center max-w-56 bg-secondary text-primary font-medium text-lg py-4 px-6 rounded-full gap-3 hover:bg-opacity-80 focus:outline-none transition-all duration-300 relative group">
                   Chci průkaz
                   <div
                     class="bg-primary text-white rounded-full h-10 w-10 flex items-center justify-center shadow-md transition-all duration-300 absolute right-3">
@@ -307,8 +308,9 @@
                   </div>
                 </a>
               </div>
-              <div class="absolute right-8 bottom-0 hidden sm:flex">
-                <div class="w-80 xl:w-full h-auto">
+              <div
+                class="absolute right-8 2xl:right-12 bottom-0 hidden sm:flex">
+                <div class="w-80 xl:w-96 2xl:w-full h-auto">
                   <picture>
                     <source srcset="images/book.avif" type="image/avif" />
                     <source srcset="images/book.webp" type="image/webp" />
@@ -323,25 +325,26 @@
           </section>
           <section>
             <div
-              class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-10"
+              class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-9"
               x-data="{ cards: [
-      { title: 'Nová zelená úsporám', description: 'Snižte si rozpočet u novostavby díky dotačnímu programu NZÚ', icon: 'icon1' },
-      { title: 'OP Životní prostředí', description: 'Získejte energetický posudek pro rekonstrukci veřejné budovy', icon: 'icon2' },
-      { title: 'OP Podnikání', description: 'Snižte energetickou náročnost svého podnikání díky dotačnímu programu', icon: 'icon3' }
-    ]}">
+                { title: 'Nová zelená úsporám', description: 'Snižte si rozpočet u novostavby díky dotačnímu programu NZÚ', icon: 'icon1' },
+                { title: 'OP Životní prostředí', description: 'Získejte energetický posudek pro rekonstrukci veřejné budovy', icon: 'icon2' },
+                { title: 'OP Podnikání', description: 'Snižte energetickou náročnost svého podnikání díky dotačnímu programu', icon: 'icon3' }
+                ]}">
               <template x-for="card in cards" :key="card.title">
                 <a href="#" class="group block">
-                  <article class="relative border border-line rounded-3xl">
+                  <article
+                    class="relative border border-line rounded-3xl transition-all duration-500 hover:bg-secondary/10 hover:shadow-lg hover:scale-105">
                     <div
-                      class="sm:grid sm:grid-cols-[1fr,120px] justify-between gap-10">
-                      <div class="p-6">
+                      class="sm:grid sm:grid-cols-[1fr,110px] justify-between gap-9">
+                      <div class="py-6 px-8">
                         <span
                           class="absolute -top-3.5 bg-tertiary text-primary text-xs font-semibold rounded-full px-2 py-1 inline-block mb-2"
                           >Energetický posudek</span
                         >
                         <div class="flex items-center">
                           <h3
-                            class="text-xl font-bold mb-1"
+                            class="text-xl font-bold mb-2"
                             x-text="card.title"></h3>
                           <span
                             class="ml-2 text-secondary transition-transform duration-300 group-hover:translate-x-1">
@@ -364,7 +367,7 @@
                       </div>
 
                       <div
-                        class="skew-content relative hidden sm:flex sm:items-center sm:justify-center p-7">
+                        class="skew-content relative hidden sm:flex sm:items-center sm:pl-3">
                         <template x-if="card.icon === 'icon1'">
                           <svg
                             width="63"
@@ -385,6 +388,7 @@
                               stroke-linecap="round"
                               stroke-linejoin="round" />
                             <path
+                              class="highlight"
                               d="M0 18.3998C0 17.8977 0.347293 17.4889 0.77386 17.4889H40.2105C40.3842 17.4889 40.5578 17.56 40.6937 17.6888L50.3538 26.789C50.535 26.9623 50.6444 27.2245 50.6444 27.5C50.6444 27.7755 50.5387 28.0377 50.3538 28.211L40.6937 37.3111C40.5578 37.44 40.3842 37.5111 40.2105 37.5111H0.77386C0.347293 37.5111 0 37.1023 0 36.6002V18.4042V18.3998Z"
                               fill="url(#paint0_linear_186_4988)" />
                             <path
@@ -416,6 +420,7 @@
                             height="54"
                             viewBox="0 0 54 54"
                             fill="none"
+                            class="svg-icon"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
                               d="M44.3311 53H26.9977"
@@ -447,6 +452,7 @@
                               width="22.9153"
                               height="4.40678"
                               rx="2.20339"
+                              class="rect-animate1"
                               fill="url(#paint0_linear_182_4907)" />
                             <rect
                               x="1"
@@ -454,7 +460,16 @@
                               width="22.9153"
                               height="4.40678"
                               rx="2.20339"
+                              class="rect-animate2"
                               fill="url(#paint1_linear_182_4907)" />
+                            <rect
+                              x="1"
+                              y="40.6610"
+                              width="22.9153"
+                              height="4.40678"
+                              rx="2.20339"
+                              class="rect-animate3"
+                              fill="url(#paint0_linear_182_4907)" />
                             <defs>
                               <linearGradient
                                 id="paint0_linear_182_4907"
@@ -487,11 +502,13 @@
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
+                              class="sparkle"
                               d="M1 27H3.88889M27 1V3.88889M50.1111 27H53M8.51111 8.51111L10.5333 10.5333M45.4889 8.51111L43.4667 10.5333"
                               stroke="#B0D9D4"
                               stroke-width="2"
                               stroke-linecap="round"
                               stroke-linejoin="round" />
+                            />
                             <path
                               d="M18.3364 38.5556C15.9111 36.7366 14.1196 34.2007 13.2156 31.3069C12.3117 28.4132 12.3411 25.3084 13.2998 22.4323C14.2585 19.5563 16.0978 17.0547 18.5572 15.2821C21.0166 13.5095 23.9714 12.5556 27.003 12.5556C30.0347 12.5556 32.9895 13.5095 35.4489 15.2821C37.9082 17.0547 39.7476 19.5563 40.7062 22.4323C41.6649 25.3084 41.6944 28.4132 40.7905 31.3069C39.8865 34.2007 38.095 36.7366 35.6697 38.5556C34.5418 39.6721 33.6925 41.0385 33.1907 42.5441C32.6888 44.0497 32.5484 45.6523 32.7808 47.2223C32.7808 48.7546 32.1721 50.2242 31.0885 51.3078C30.005 52.3913 28.5354 53.0001 27.003 53.0001C25.4707 53.0001 24.0011 52.3913 22.9175 51.3078C21.834 50.2242 21.2253 48.7546 21.2253 47.2223C21.4577 45.6523 21.3173 44.0497 20.8154 42.5441C20.3135 41.0385 19.4643 39.6721 18.3364 38.5556Z"
                               stroke="#B0D9D4"
